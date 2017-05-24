@@ -1,1 +1,36 @@
-Hello list
+{% extends "base.twig" %}
+
+{% block title %}List of stories{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">List of stories!</h1>
+
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Story</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for story in stories %}
+                <tr>
+                    <th scope="row" class="id-row">{{ story.id }}</th>
+                    <td class="text-row">{{ story.text }}</td>
+                    <td class="action-row">
+                        <button class="btn btn-default" data-id="{{ story.id }}" type="submit">Delete</button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="js/list.js"></script>
+{% endblock %}
+

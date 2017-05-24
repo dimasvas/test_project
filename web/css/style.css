@@ -4,3 +4,12 @@ h1 {
 textarea.form-control {
     height: 250px!important;
 }
+.id-row {
+    width: 5%;
+}
+.text-row {
+    width: 80%;
+}
+.action-row {
+    width: 10%;
+}

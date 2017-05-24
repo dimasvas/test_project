@@ -11,6 +11,11 @@
 		'_controller' => 'Story\Controller\DefaultController::indexAction',
 	)));
 
+	$routes->add('list', new Routing\Route('/list', array(
+		'year' => null,
+		'_controller' => 'Story\Controller\DefaultController::listAction',
+	)));
+
 	$routes->add('add', new Routing\Route('/add', array(
 		'_controller' => 'Story\Controller\DefaultController::addAction',
 		array(),
@@ -20,9 +25,13 @@
 		array('POST')
 	)));
 
-	$routes->add('list', new Routing\Route('/list', array(
-		'year' => null,
-		'_controller' => 'Story\Controller\DefaultController::listAction',
+	$routes->add('delete', new Routing\Route('/delete/{id}', array(
+		'_controller' => 'Story\Controller\DefaultController::deleteAction',
+		array(),
+		array(),
+		'',
+		array(),
+		array('DELETE')
 	)));
 
 	return $routes;
