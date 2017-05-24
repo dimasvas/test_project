@@ -3,9 +3,11 @@
 
 	use Symfony\Component\HttpFoundation\Request;
 
-	$request = Request::createFromGlobals();
 	$routes = include __DIR__.'/../src/app.php';
+	$sc = include __DIR__.'/../src/container.php';
 
-	$framework = new Simplex\Framework($routes);
+	$request = Request::createFromGlobals();
 
-	$framework->handle($request)->send();
+	$response = $sc->get('framework')->handle($request);
+
+	$response->send();
