@@ -1,5 +1,4 @@
 <?php
-
 	namespace Calendar\Controller;
 
 	use Symfony\Component\HttpFoundation\Request;
