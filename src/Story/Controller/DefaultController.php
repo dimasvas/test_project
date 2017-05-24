@@ -8,9 +8,17 @@
 	use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 	use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-
+	/**
+	 * Class DefaultController
+	 * @package Story\Controller
+	 */
 	class DefaultController extends BaseController
 	{
+		/**
+		 * @param Request $request
+		 *
+		 * @return Response
+		 */
 		public function indexAction(Request $request)
 		{
 			$response =  new Response(
@@ -20,6 +28,11 @@
 			return $response;
 		}
 
+		/**
+		 * @param Request $request
+		 *
+		 * @return Response
+		 */
 		public function listAction(Request $request)
 		{
 			$storyRepository = $this->entityManager->getRepository('Story\Model\Story');
@@ -32,14 +45,27 @@
 			return $response;
 		}
 
+		/**
+		 * @param Request $request
+		 *
+		 * @return JsonResponse
+		 */
 		public function addAction(Request $request)
 		{
 			if(!$request->isXmlHttpRequest()) {
-				throw new AccessDeniedHttpException('Not allowed!');
+				//throw new AccessDeniedHttpException('Not allowed!');
 			}
 
 			$entity = new Story();
-			$entity->setText($request->get('story'));
+			$entity->setText($request->get('story', null));
+
+			$errors = $this->validator->validate($entity);
+
+			if (count($errors) > 0) {
+				$errorsString = (string) $errors;
+
+				return new Response(array('msg' => $errorsString, 'error' => true));
+			}
 
 			$this->entityManager->persist($entity);
 			$this->entityManager->flush();
@@ -48,6 +74,12 @@
 
 		}
 
+		/**
+		 * @param Request $request
+		 * @param $id
+		 *
+		 * @return JsonResponse
+		 */
 		public function deleteAction(Request $request, $id)
 		{
 			if(!$request->isXmlHttpRequest()) {

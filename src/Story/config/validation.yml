@@ -1,0 +1,4 @@
+Story\Model:
+    properties:
+        text:
+            - NotBlank: ~

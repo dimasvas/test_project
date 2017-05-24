@@ -1,15 +1,20 @@
 <?php
-	namespace Story\Model;
+
+namespace Story\Model;
+
+use Doctrine\ORM\Mapping as ORM;
 
 	/**
-	 * @Entity @Table(name="story")
+	 * @Entity
+	 * @Table(name="story")
 	 **/
 	class Story
 	{
 		/**
-		 * @Id @Column(type="integer")
+		 * @Id
+		 * @Column(type="integer")
 		 * @GeneratedValue
-		 * **/
+		 **/
 		protected $id;
 
 		/**
