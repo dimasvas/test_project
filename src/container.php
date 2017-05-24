@@ -22,7 +22,7 @@
 	   ->setArguments(array('UTF-8'))
 	;
 	$sc->register('listener.exception', HttpKernel\EventListener\ExceptionListener::class)
-	   ->setArguments(array('Calendar\Controller\ErrorController::exceptionAction'))
+	   ->setArguments(array('Story\Controller\ErrorController::exceptionAction'))
 	;
 	$sc->register('dispatcher', EventDispatcher\EventDispatcher::class)
 	   ->addMethodCall('addSubscriber', array(new Reference('listener.router')))

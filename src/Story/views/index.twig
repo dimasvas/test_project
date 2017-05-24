@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block title %}Post a success story{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Post a success story!</h1>
+
+    <form>
+        <div class="form-group" id="add-qform">
+            <label for="story">Short Story</label>
+            <textarea class="form-control" id="story" name="story"></textarea>
+        </div>
+        <button type="submit" id="add-story-btn" class="btn btn-default">Submit</button>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="js/add.js"></script>
+{% endblock %}

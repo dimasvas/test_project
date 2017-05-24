@@ -4,6 +4,7 @@
 	use Symfony\Component\HttpFoundation\Request;
 
 	$routes = include __DIR__.'/../src/app.php';
+	$bootstrap = include __DIR__.'/../src/bootstrap.php';
 	$sc = include __DIR__.'/../src/container.php';
 
 	$request = Request::createFromGlobals();

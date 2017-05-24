@@ -6,7 +6,10 @@
         "symfony/event-dispatcher": "^3.2",
         "symfony/dependency-injection": "^3.2",
         "symfony/templating": "^3.2",
-        "twig/twig": "^2.0"
+        "twig/twig": "^2.0",
+        "symfony/translation": "^3.2",
+        "doctrine/orm": "2.5.6",
+        "symfony/yaml": "^3.2"
     },
     "autoload": {
         "psr-4": { "": "src/" }
