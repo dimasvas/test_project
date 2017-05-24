@@ -4,6 +4,9 @@ h1 {
 textarea.form-control {
     height: 250px!important;
 }
+.header {
+    padding: 30px 70px;
+}
 .id-row {
     width: 5%;
 }

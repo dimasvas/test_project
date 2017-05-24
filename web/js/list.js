@@ -1,5 +1,6 @@
 $(function(){
-   $('#delete-btn').click(function(e){
+
+   $('.delete-btn').click(function(e){
         e.preventDefault();
 
         var self = $(this);
