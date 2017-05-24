@@ -13,3 +13,8 @@ textarea.form-control {
 .action-row {
     width: 10%;
 }
+.success-msg {
+    margin-left: 40px;
+    color: green;
+}
+

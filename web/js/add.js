@@ -8,8 +8,13 @@ $(function(){
             data: $("#add-form").serialize(),
             success: function(data)
             {
-                alert(data); // show response from the php script.
+                $('#success-msg').text('Success!');
+                $('#story').val('');
             }
         });
+    });
+
+    $('#story').focus(function(e){
+        $('#success-msg').text('');
     });
 });
