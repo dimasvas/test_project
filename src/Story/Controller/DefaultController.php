@@ -53,7 +53,7 @@
 		public function addAction(Request $request)
 		{
 			if(!$request->isXmlHttpRequest()) {
-				//throw new AccessDeniedHttpException('Not allowed!');
+				throw new AccessDeniedHttpException('Not allowed!');
 			}
 
 			$entity = new Story();
@@ -86,9 +86,7 @@
 				throw new AccessDeniedHttpException('Not allowed!');
 			}
 
-			$story = $this->entityManager
-							->getRepository('Story\Model\Story')
-							->find($id);
+			$story = $this->entityManager->getRepository('Story\Model\Story')->find($id);
 
 			if (!$story) {
 				throw new NotFoundHttpException('Entity not found!');
